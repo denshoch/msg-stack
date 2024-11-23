@@ -1,0 +1,3 @@
+I001: 'Test info message'
+W001: 'Test warning: {param}'
+E001: 'Test error: {path}' 

@@ -1,0 +1,44 @@
+{
+    "name": "denshoch/msg-stack",
+    "description": "A message stack system that accumulates messages while continuing process",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.1",
+        "symfony/yaml": "^6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0",
+        "squizlabs/php_codesniffer": "^3.3",
+        "phpstan/phpstan": "2.0.x-dev"
+    },
+    "config": {
+        "platform": {
+            "php": "8.3.0"
+        }
+    },
+    "scripts": {
+        "stan": [
+            "phpstan analyse src --level=8 --memory-limit=1G"
+        ],
+        "test": [
+            "phpunit tests"
+        ],
+        "phpcs": [
+            "phpcs --standard=PSR12 src | more"
+        ],
+        "phpcbf": [
+            "phpcbf --standard=PSR12 src"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "Denshoch\\MsgStack\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Denshoch\\MsgStack\\Tests\\": "tests/"
+        }
+    }
+} 
