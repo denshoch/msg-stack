@@ -60,14 +60,24 @@ class MessageStore
 
     /**
      * Set current language
-     * @throws MessageException When language is not supported
+     * @param string $language Language code (e.g. 'en', 'ja')
+     * @throws MessageException When both specified language and fallback 'en' are not supported
      */
     public function setLanguage(string $language): void
     {
-        if (!isset($this->messages[$language])) {
-            throw new MessageException("Language not supported: $language");
+        if (isset($this->messages[$language])) {
+            $this->language = $language;
+            return;
         }
-        $this->language = $language;
+
+        // 指定された言語が存在しない場合、英語にフォールバック
+        if (isset($this->messages['en'])) {
+            $this->language = 'en';
+            return;
+        }
+
+        // 英語も存在しない場合はエラー
+        throw new MessageException("Language not supported: $language (fallback 'en' also not available)");
     }
 
     /**
