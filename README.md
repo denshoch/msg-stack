@@ -12,13 +12,13 @@ A message stack system that accumulates messages while continuing process.
 
 ## Installation 
 
-=== 
+``` 
 composer require denshoch/msg-stack
-===
+```
 
 ## Basic Usage
 
-=== php
+``` php
 use Denshoch\MsgStack\MessageStore;
 use Denshoch\MsgStack\MessageType;
 
@@ -57,13 +57,13 @@ try {
         // Handle errors...
     }
 }
-===
+```
 
 ## Message Definition
 
 Create YAML files in your messages directory:
 
-=== yaml
+``` yaml
 # messages/en.yml
 W001: 'Low resolution image detected: {filename}'
 E001: 'Invalid path: {path}'
@@ -71,7 +71,7 @@ E001: 'Invalid path: {path}'
 # messages/ja.yml
 W001: '低解像度の画像が検出されました: {filename}'
 E001: '不正なパスです: {path}'
-===
+```
 
 ## API Reference
 
@@ -87,7 +87,7 @@ E001: '不正なパスです: {path}'
 
 ### MessageType
 
-=== php
+``` php
 enum MessageType: string
 {
     case INFO = 'info';
@@ -95,7 +95,7 @@ enum MessageType: string
     case ERROR = 'error';
     case SUCCESS = 'success';
 }
-===
+```
 
 ## Requirements
 

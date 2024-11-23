@@ -12,13 +12,13 @@
 
 ## インストール
 
-=== 
+``` 
 composer require denshoch/msg-stack
-===
+```
 
 ## 基本的な使い方
 
-=== php
+``` php
 use Denshoch\MsgStack\MessageStore;
 use Denshoch\MsgStack\MessageType;
 
@@ -57,13 +57,13 @@ try {
         // エラー処理...
     }
 }
-===
+```
 
 ## メッセージの定義
 
 メッセージディレクトリにYAMLファイルを作成します：
 
-=== yaml
+``` yaml
 # messages/en.yml
 W001: 'Low resolution image detected: {filename}'
 E001: 'Invalid path: {path}'
@@ -71,7 +71,7 @@ E001: 'Invalid path: {path}'
 # messages/ja.yml
 W001: '低解像度の画像が検出されました: {filename}'
 E001: '不正なパスです: {path}'
-===
+```
 
 ## APIリファレンス
 
@@ -87,7 +87,7 @@ E001: '不正なパスです: {path}'
 
 ### MessageType
 
-=== php
+``` php
 enum MessageType: string
 {
     case INFO = 'info';
@@ -95,7 +95,7 @@ enum MessageType: string
     case ERROR = 'error';
     case SUCCESS = 'success';
 }
-===
+```
 
 ## 動作要件
 
